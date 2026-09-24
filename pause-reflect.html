@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Library - Pause & Reflect</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2>ID Components</h2>
+            <p>Learning Activity Templates</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Welcome / How to Use</a></li>
+            <li><a href="matching-game.html">Drag & Drop Matching</a></li>
+            <li><a href="pause-reflect.html" class="active">Pause & Reflect Stepper</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="content">
+        
+        <header class="page-header float-in">
+            <h1>Pause & Reflect Stepper</h1>
+            <p>A 3-step interactive reflection tool. Good for breaking up heavy content and prompting critical thinking.</p>
+        </header>
+
+        <section class="component-section float-in delay-1">
+            
+            <h3 class="preview-title">Live Interactive Preview — <em>Try it out!</em></h3>
+            <div class="preview-box">
+                <!-- FULLY INTERACTIVE LIVE PREVIEW (Original Colors) -->
+                <div class="stop-and-think-container">
+                    <div class="think-header">
+                      <span class="pause-badge">Pause &amp; Reflect</span>
+                      <h3>A Moment for Deeper Consideration</h3>
+                      <p class="header-sub">Take these one step at a time. Consider how our assumptions affect real lives before designing a response.</p>
+                    </div>
+                  
+                    <div class="stepper-workspace">
+                      <div id="stepper-indicators" class="step-indicators">
+                        <div class="indicator active" data-step="1">1. Program Assumptions</div>
+                        <div class="indicator" data-step="2">2. Materials vs. Governance</div>
+                        <div class="indicator" data-step="3">3. Your Context</div>
+                      </div>
+                  
+                      <div class="think-card active" data-card="1">
+                        <div class="card-step-num">Question 1 of 3</div>
+                        <h4 class="card-question">Think of a shelter program you know about. What constraint did it assume? Did anyone actually diagnose whether that was the binding constraint?</h4>
+                        <div class="thought-prompt-box">
+                          <span class="prompt-icon">&#128161;</span>
+                          <p>Take a quiet moment to picture the program, examine its core premise, and consider what evidence was relied upon.</p>
+                        </div>
+                      </div>
+                  
+                      <div class="think-card" data-card="2">
+                        <div class="card-step-num">Question 2 of 3</div>
+                        <h4 class="card-question">If control and governance are often binding constraints in shelter responses, why do programs focus so heavily on materials and construction?</h4>
+                        <div class="thought-prompt-box">
+                          <span class="prompt-icon">&#128161;</span>
+                          <p>Reflect on organizational incentives, visibility, and how easy it is to measure physical output versus political reality.</p>
+                        </div>
+                      </div>
+                  
+                      <div class="think-card" data-card="3">
+                        <div class="card-step-num">Question 3 of 3</div>
+                        <h4 class="card-question">How would you diagnose constraints in your own context? What questions would you ask? Who would you talk to?</h4>
+                        <div class="thought-prompt-box">
+                          <span class="prompt-icon">&#128161;</span>
+                          <p>Consider who holds the actual answers in your setting and how you can ensure their voices guide your decisions.</p>
+                        </div>
+                      </div>
+                  
+                      <div id="completion-screen" class="completion-card">
+                        <div class="completion-icon">&#10004;</div>
+                        <h4>Reflection Complete</h4>
+                        <p>Thank you for taking a moment to pause, examine your assumptions, and center human reality in your thinking.</p>
+                        <button class="nav-btn secondary-btn" onclick="resetReflection()">Review Questions Again</button>
+                      </div>
+                  
+                      <div id="stepper-footer" class="stepper-footer">
+                        <button id="prev-btn" class="nav-btn secondary-btn" onclick="changeStep(-1)" disabled>Previous</button>
+                        <span id="step-counter" class="step-counter-text">1 / 3</span>
+                        <button id="next-btn" class="nav-btn primary-btn" onclick="changeStep(1)">Next Question</button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pro Tip Section -->
+            <div class="pro-tip-box">
+                <h4>💡 Pro Tip for Non-Coders</h4>
+                <p>Don't want to type into the code manually? Copy this prompt, paste it into an AI (like Gemini or ChatGPT), and let it do the formatting for you!</p>
+                <div class="ai-prompt-container">
+                    <button class="copy-website-btn" onclick="copyText('prompt-stepper')">Copy Prompt</button>
+                    <pre><code id="prompt-stepper" class="language-text">I am building an interactive learning activity. I want to adapt my teaching principles into a specific HTML code format. 
+
+Please take my content provided below and insert it into the bracketed placeholders of the HTML template provided below. Do not change the HTML structure, class names, or IDs. Only replace the placeholder text.
+
+My Content:
+[Paste your step titles, questions, and reflection prompts here]
+
+HTML Template:
+[Paste the copied Template Code from below here]</code></pre>
+                </div>
+            </div>
+
+            <!-- Template Code Section -->
+            <div class="code-block-header">
+                <h3>Template Code</h3>
+                <button class="copy-website-btn" onclick="copyText('code-stepper')">Copy Code</button>
+            </div>
+            <pre><code id="code-stepper" class="language-html">&lt;div class="stop-and-think-container"&gt;
+  &lt;!-- Header Area --&gt;
+  &lt;div class="think-header"&gt;
+    &lt;span class="pause-badge"&gt;[INSERT BADGE TEXT - e.g. Pause &amp; Reflect]&lt;/span&gt;
+    &lt;h3&gt;[INSERT MAIN HEADER TITLE]&lt;/h3&gt;
+    &lt;p class="header-sub"&gt;[INSERT SUBTITLTE/INSTRUCTIONS HERE]&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Interactive Stepper Workspace --&gt;
+  &lt;div class="stepper-workspace"&gt;
+    
+    &lt;!-- Progress Indicators --&gt;
+    &lt;div id="stepper-indicators" class="step-indicators"&gt;
+      &lt;div class="indicator active" data-step="1"&gt;[INSERT STEP 1 LABEL]&lt;/div&gt;
+      &lt;div class="indicator" data-step="2"&gt;[INSERT STEP 2 LABEL]&lt;/div&gt;
+      &lt;div class="indicator" data-step="3"&gt;[INSERT STEP 3 LABEL]&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Step 1 Card --&gt;
+    &lt;div class="think-card active" data-card="1"&gt;
+      &lt;div class="card-step-num"&gt;Question 1 of 3&lt;/div&gt;
+      &lt;h4 class="card-question"&gt;[INSERT QUESTION 1 HERE]&lt;/h4&gt;
+      &lt;div class="thought-prompt-box"&gt;
+        &lt;span class="prompt-icon"&gt;&amp;#128161;&lt;/span&gt;
+        &lt;p&gt;[INSERT HINT OR REFLECTION PROMPT 1 HERE]&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Step 2 Card --&gt;
+    &lt;div class="think-card" data-card="2"&gt;
+      &lt;div class="card-step-num"&gt;Question 2 of 3&lt;/div&gt;
+      &lt;h4 class="card-question"&gt;[INSERT QUESTION 2 HERE]&lt;/h4&gt;
+      &lt;div class="thought-prompt-box"&gt;
+        &lt;span class="prompt-icon"&gt;&amp;#128161;&lt;/span&gt;
+        &lt;p&gt;[INSERT HINT OR REFLECTION PROMPT 2 HERE]&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Step 3 Card --&gt;
+    &lt;div class="think-card" data-card="3"&gt;
+      &lt;div class="card-step-num"&gt;Question 3 of 3&lt;/div&gt;
+      &lt;h4 class="card-question"&gt;[INSERT QUESTION 3 HERE]&lt;/h4&gt;
+      &lt;div class="thought-prompt-box"&gt;
+        &lt;span class="prompt-icon"&gt;&amp;#128161;&lt;/span&gt;
+        &lt;p&gt;[INSERT HINT OR REFLECTION PROMPT 3 HERE]&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Completion Success View --&gt;
+    &lt;div id="completion-screen" class="completion-card"&gt;
+      &lt;div class="completion-icon"&gt;&amp;#10004;&lt;/div&gt;
+      &lt;h4&gt;[INSERT COMPLETION HEADER - e.g. Reflection Complete]&lt;/h4&gt;
+      &lt;p&gt;[INSERT COMPLETION MESSAGE HERE]&lt;/p&gt;
+      &lt;button class="nav-btn secondary-btn" onclick="resetReflection()"&gt;Review Questions Again&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Navigation Buttons --&gt;
+    &lt;div id="stepper-footer" class="stepper-footer"&gt;
+      &lt;button id="prev-btn" class="nav-btn secondary-btn" onclick="changeStep(-1)" disabled&gt;Previous&lt;/button&gt;
+      &lt;span id="step-counter" class="step-counter-text"&gt;1 / 3&lt;/span&gt;
+      &lt;button id="next-btn" class="nav-btn primary-btn" onclick="changeStep(1)"&gt;Next Question&lt;/button&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Library - Matching Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2>ID Components</h2>
+            <p>Learning Activity Templates</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Welcome / How to Use</a></li>
+            <li><a href="matching-game.html" class="active">Drag & Drop Matching</a></li>
+            <li><a href="pause-reflect.html">Pause & Reflect Stepper</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="content">
+        
+        <header class="page-header float-in">
+            <h1>Drag & Drop Matching Game</h1>
+            <p>Interactive diagnostic tool. Users drag text cards to corresponding zones. Copy the code below and fill in the bracketed text.</p>
+        </header>
+
+        <section class="component-section float-in delay-1">
+            
+            <h3 class="preview-title">Live Interactive Preview — <em>Try it out!</em></h3>
+            <div class="preview-box">
+                <!-- FULLY INTERACTIVE LIVE PREVIEW (Original Colors) -->
+                <div class="matching-game-container">
+                    <div class="game-header">
+                      <h3>Constraint Diagnosis: Site 2 Interactive Challenge</h3>
+                      <p class="game-instruction">Tap or drag an answer on the right, then tap or drop it into the correct step on the left. Click "Check Answers" when finished.</p>
+                    </div>
+                  
+                    <div class="matching-workspace" style="position: relative;">
+                      <div id="success-banner" class="success-banner">
+                        <div class="glowing-text">Good Job!</div>
+                        <div id="confetti-rain"></div>
+                      </div>
+                  
+                      <!-- Left Column -->
+                      <div class="column left-column">
+                        <div class="column-title">Diagnostic Steps</div>
+                        
+                        <div class="drop-zone-wrapper" data-step="1">
+                          <div class="step-label-box">
+                            <span class="step-num">1</span>
+                            <span class="step-text">Observe the Symptom</span>
+                          </div>
+                          <div class="drop-zone" data-target="1" onclick="handleZoneClick(event)" ondragover="allowDrop(event)" ondragleave="removeHighlight(event)" ondrop="dropItem(event)" ondragenter="highlightDrop(event)">
+                            <span class="placeholder-text">Place answer here</span>
+                          </div>
+                        </div>
+                  
+                        <div class="drop-zone-wrapper" data-step="2">
+                          <div class="step-label-box">
+                            <span class="step-num">2</span>
+                            <span class="step-text">Ask the Core Question</span>
+                          </div>
+                          <div class="drop-zone" data-target="2" onclick="handleZoneClick(event)" ondragover="allowDrop(event)" ondragleave="removeHighlight(event)" ondrop="dropItem(event)" ondragenter="highlightDrop(event)">
+                            <span class="placeholder-text">Place answer here</span>
+                          </div>
+                        </div>
+                  
+                        <div class="drop-zone-wrapper" data-step="3">
+                          <div class="step-label-box">
+                            <span class="step-num">3</span>
+                            <span class="step-text">Test Systematically</span>
+                          </div>
+                          <div class="drop-zone" data-target="3" onclick="handleZoneClick(event)" ondragover="allowDrop(event)" ondragleave="removeHighlight(event)" ondrop="dropItem(event)" ondragenter="highlightDrop(event)">
+                            <span class="placeholder-text">Place answer here</span>
+                          </div>
+                        </div>
+                  
+                        <div class="drop-zone-wrapper" data-step="4">
+                          <div class="step-label-box">
+                            <span class="step-num">4</span>
+                            <span class="step-text">Identify Binding Constraint</span>
+                          </div>
+                          <div class="drop-zone" data-target="4" onclick="handleZoneClick(event)" ondragover="allowDrop(event)" ondragleave="removeHighlight(event)" ondrop="dropItem(event)" ondragenter="highlightDrop(event)">
+                            <span class="placeholder-text">Place answer here</span>
+                          </div>
+                        </div>
+                  
+                        <div class="drop-zone-wrapper" data-step="5">
+                          <div class="step-label-box">
+                            <span class="step-num">5</span>
+                            <span class="step-text">Design Interventions</span>
+                          </div>
+                          <div class="drop-zone" data-target="5" onclick="handleZoneClick(event)" ondragover="allowDrop(event)" ondragleave="removeHighlight(event)" ondrop="dropItem(event)" ondragenter="highlightDrop(event)">
+                            <span class="placeholder-text">Place answer here</span>
+                          </div>
+                        </div>
+                      </div>
+                  
+                      <!-- Right Column -->
+                      <div class="column right-column">
+                        <div class="column-title">Site 2 Observations & Actions</div>
+                        <div id="draggable-pool" onclick="handleZoneClick(event)" ondragover="allowDropPool(event)" ondrop="dropToPool(event)">
+                          <div class="draggable-card" draggable="true" onclick="handleCardClick(event)" ondragstart="dragStart(event)" id="card-3" data-answer="3">
+                            Test structure, access, and governance rules to see which bottleneck is actually forcing families away.
+                          </div>
+                          <div class="draggable-card" draggable="true" onclick="handleCardClick(event)" ondragstart="dragStart(event)" id="card-1" data-answer="1">
+                            Roughly 200 shelters—fully erected, structurally sound, with intact tarpaulins—remain completely unoccupied at night.
+                          </div>
+                          <div class="draggable-card" draggable="true" onclick="handleCardClick(event)" ondragstart="dragStart(event)" id="card-5" data-answer="5">
+                            Eliminate the 48-hour rule, require nighttime verification, and establish transparent appeals mechanisms.
+                          </div>
+                          <div class="draggable-card" draggable="true" onclick="handleCardClick(event)" ondragstart="dragStart(event)" id="card-4" data-answer="4">
+                            Control: Committee governance rules strip plot ownership from families who temporarily leave the site to work.
+                          </div>
+                          <div class="draggable-card" draggable="true" onclick="handleCardClick(event)" ondragstart="dragStart(event)" id="card-2" data-answer="2">
+                            What prevents registered families from sleeping in their designated shelters?
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  
+                    <div class="game-footer">
+                      <button class="check-btn" onclick="checkAnswers()">Check Answers</button>
+                      <button class="reset-btn" onclick="resetGame()">Reset Game</button>
+                      <div id="feedback-message" class="feedback-msg"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pro Tip Section -->
+            <div class="pro-tip-box">
+                <h4>💡 Pro Tip for Non-Coders</h4>
+                <p>Don't want to type into the code manually? Copy this prompt, paste it into an AI (like Gemini or ChatGPT), and let it do the formatting for you!</p>
+                <div class="ai-prompt-container">
+                    <button class="copy-website-btn" onclick="copyText('prompt-matching')">Copy Prompt</button>
+                    <pre><code id="prompt-matching" class="language-text">I am building an interactive learning activity. I want to adapt my teaching principles into a specific HTML code format. 
+
+Please take my content provided below and insert it into the bracketed placeholders of the HTML template provided below. Do not change the HTML structure, class names, or IDs. Only replace the placeholder text.
+
+My Content:
+[Paste your categories, answers, and game text here]
+
+HTML Template:
+[Paste the copied Template Code from below here]</code></pre>
+                </div>
+            </div>
+
+            <!-- Template Code Section -->
+            <div class="code-block-header">
+                <h3>Template Code</h3>
+                <button class="copy-website-btn" onclick="copyText('code-matching')">Copy Code</button>
+            </div>
+            <pre><code id="code-matching" class="language-html">&lt;div class="matching-game-container"&gt;
+  &lt;div class="game-header"&gt;
+    &lt;h3&gt;[INSERT GAME TITLE HERE]&lt;/h3&gt;
+    &lt;p class="game-instruction"&gt;Tap or drag an answer on the right, then tap or drop it into the correct step on the left. Click "Check Answers" when finished.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class="matching-workspace" style="position: relative;"&gt;
+    &lt;div id="success-banner" class="success-banner"&gt;
+      &lt;div class="glowing-text"&gt;[INSERT SUCCESS TEXT - e.g. Good Job!]&lt;/div&gt;
+      &lt;div id="confetti-rain"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Left Column: Drop Zones --&gt;
+    &lt;div class="column left-column"&gt;
+      &lt;div class="column-title"&gt;[INSERT LEFT COLUMN TITLE - e.g. Categories]&lt;/div&gt;
+      
+      &lt;!-- Drop Zone 1 --&gt;
+      &lt;div class="drop-zone-wrapper" data-step="1"&gt;
+        &lt;div class="step-label-box"&gt;
+          &lt;span class="step-num"&gt;1&lt;/span&gt;
+          &lt;span class="step-text"&gt;[INSERT CATEGORY 1 TEXT HERE]&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="drop-zone" data-target="1" onclick="handleZoneClick(event)" ondragover="allowDrop(event)" ondragleave="removeHighlight(event)" ondrop="dropItem(event)" ondragenter="highlightDrop(event)"&gt;
+          &lt;span class="placeholder-text"&gt;Place answer here&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;!-- Duplicate Drop Zone wrappers as needed, increasing data-step and data-target numbers --&gt;
+
+    &lt;/div&gt;
+
+    &lt;!-- Right Column: Draggable Answers --&gt;
+    &lt;div class="column right-column"&gt;
+      &lt;div class="column-title"&gt;[INSERT RIGHT COLUMN TITLE - e.g. Options]&lt;/div&gt;
+      &lt;div id="draggable-pool" onclick="handleZoneClick(event)" ondragover="allowDropPool(event)" ondrop="dropToPool(event)"&gt;
+        
+        &lt;!-- Note: data-answer="1" means this card belongs in data-target="1" above. Shuffle their physical order here so it's a game! --&gt;
+        &lt;div class="draggable-card" draggable="true" onclick="handleCardClick(event)" ondragstart="dragStart(event)" id="card-1" data-answer="1"&gt;
+          [INSERT DRAGGABLE ANSWER TEXT 1 HERE]
+        &lt;/div&gt;
+
+        &lt;div class="draggable-card" draggable="true" onclick="handleCardClick(event)" ondragstart="dragStart(event)" id="card-2" data-answer="2"&gt;
+          [INSERT DRAGGABLE ANSWER TEXT 2 HERE]
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="game-footer"&gt;
+    &lt;button class="check-btn" onclick="checkAnswers()"&gt;Check Answers&lt;/button&gt;
+    &lt;button class="reset-btn" onclick="resetGame()"&gt;Reset Game&lt;/button&gt;
+    &lt;div id="feedback-message" class="feedback-msg"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
