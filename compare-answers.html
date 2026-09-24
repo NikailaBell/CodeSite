@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Library - Compare with Pro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2>ID Components</h2>
+            <p>Learning Activity Templates</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Welcome / How to Use</a></li>
+            <li><a href="matching-game.html">Drag & Drop Matching</a></li>
+            <li><a href="pause-reflect.html">Pause & Reflect Stepper</a></li>
+            <li><a href="compare-answers.html" class="active">Compare with Pro</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="content">
+        
+        <header class="page-header float-in">
+            <h1>Compare with an Expert</h1>
+            <p>A scenario-based exercise where learners tackle a real-world problem and immediately compare their response side-by-side with an expert's to see how closely their thinking aligns.</p>
+        </header>
+
+        <section class="component-section float-in delay-1">
+            
+            <div class="customization-guide-box">
+                <h4>🛠️ How to Add or Remove Questions</h4>
+                <p>If you have more or fewer questions than this template, just look at the code and edit to the number you need. <strong>Copy the <code>&lt;article class="cp-card"&gt;</code> section</strong> and change the number label (e.g., <code>q3</code>) to add questions, or delete an article to remove one.</p>
+                <p><em>Important:</em> If you add questions, scroll to the bottom of the code and add your new <code>q3</code> or <code>q4</code> labels to the <code>taIds</code> and <code>lsKeys</code> variables in the JavaScript!</p>
+            </div>
+
+            <h3 class="preview-title">Live Interactive Preview — <em>Try it out!</em></h3>
+            <div class="preview-box">
+                
+                <!-- ==========================================
+                     LIVE PREVIEW OF THE COMPONENT
+                =========================================== -->
+                <div class="cp-wrap">
+                  <style>
+                    .cp-wrap {
+                      --green: #235c35; --green-700: #163a21; --green-50: #e8f3ec; --border: #d9e4dc;
+                      --text: #1a1a1a; --muted: #4b4b4b; --bg: #ffffff; --shadow: 0 2px 8px rgba(0,0,0,0.08); --radius: 14px;
+                      font-family: system-ui, -apple-system, sans-serif; color: var(--text); background: var(--bg); line-height: 1.5; max-width: 980px; margin: 0 auto; text-align: left;
+                    }
+                    .cp-header { margin-bottom: 15px; }
+                    .cp-header h2 { font-size: 1.35rem; color: var(--green); margin: 0 0 4px 0; }
+                    .cp-header p { color: var(--muted); margin: 0; font-size: 0.95rem; }
+                    .cp-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px 18px; margin-bottom: 14px; }
+                    .cp-section-title { font-size: 1.05rem; font-weight: 700; color: var(--green-700); margin: 0 0 10px; border-bottom: 2px solid var(--green-50); padding-bottom: 6px; }
+                    .cp-scenario p { margin: 4px 0; font-size: 0.98rem; }
+                    .cp-label { font-weight: 700; color: var(--green-700); margin-bottom: 8px; display: block; font-size: 0.95rem; }
+                    .cp-textarea { width: 100%; min-height: 90px; font-family: inherit; font-size: 1rem; padding: 12px; border-radius: 12px; border: 1px solid var(--border); box-sizing: border-box; resize: none; transition: 0.15s; }
+                    .cp-textarea:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(35,92,53,0.15); }
+                    .cp-textarea[readonly] { background: #f9faf9; cursor: not-allowed; }
+                    .cp-buttons { display: flex; gap: 10px; margin-top: 12px; align-items: center; }
+                    .cp-btn { appearance: none; border: 1px solid var(--green); color: var(--green); background: #fff; border-radius: 99px; padding: 8px 16px; font-weight: 600; cursor: pointer; transition: 0.15s; font-size: 0.9rem;}
+                    .cp-btn:hover { background: var(--green-50); transform: translateY(-1px); }
+                    .cp-btn-outline { border-color: var(--border); color: var(--green-700); }
+                    .cp-hidden { display: none !important; }
+                    .cp-status { color: var(--muted); font-size: 0.85rem; }
+                    #cp-compare { display: none; }
+                    .cp-compare-wrapper { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 14px; align-items: start; }
+                    .cp-col { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+                    .cp-col-header { padding: 12px 16px; border-bottom: 1px solid var(--border); background: #fafdfb; font-weight: 700; color: var(--green-700); font-size: 1rem;}
+                    .cp-col-body { padding: 14px 16px; }
+                    .cp-user-answer { border: 1px solid var(--border); border-radius: 12px; padding: 12px; margin-bottom: 10px; }
+                    .cp-user-answer h4 { margin: 0 0 6px; font-size: 0.9rem; color: var(--muted); }
+                    .cp-content { white-space: pre-wrap; font-size: 0.95rem; }
+                    @media (max-width: 768px) { .cp-compare-wrapper { grid-template-columns: 1fr; } .cp-expert-col { order: 2; } }
+                  </style>
+
+                  <div class="cp-header">
+                    <h2>Practice: The Accessibility Audit</h2>
+                    <p>Read the scenario, answer the questions, and click <strong>Compare to Experts</strong>. Your answers autosave.</p>
+                  </div>
+
+                  <!-- Scenario -->
+                  <div class="cp-card">
+                    <h3 class="cp-section-title">Scenario: Approaching Deadlines</h3>
+                    <div class="cp-scenario">
+                      <p>You are reviewing an eLearning module. The videos lack captions, and interactions can't be navigated by keyboard. The project manager says, "We don't have time to fix this before the launch on Friday."</p>
+                    </div>
+                  </div>
+
+                  <!-- Questions -->
+                  <div id="cp-questions" class="cp-card">
+                    <h3 class="cp-section-title">Your Turn</h3>
+                    
+                    <article class="cp-card" style="box-shadow:none; padding:0; border:none;">
+                      <label for="prev-q1" class="cp-label">1. How do you respond to the project manager?</label>
+                      <textarea id="prev-q1" class="cp-textarea" placeholder="Type your response..."></textarea>
+                    </article>
+
+                    <article class="cp-card" style="box-shadow:none; padding:0; border:none;">
+                      <label for="prev-q2" class="cp-label">2. What short-term solution could you propose?</label>
+                      <textarea id="prev-q2" class="cp-textarea" placeholder="Propose an immediate fix..."></textarea>
+                    </article>
+
+                    <div class="cp-buttons">
+                      <button id="prev-btnCompare" class="cp-btn">Compare to Experts</button>
+                      <button id="prev-btnEdit" class="cp-btn cp-hidden">Return to Editing</button>
+                      <button id="prev-btnExport" class="cp-btn cp-btn-outline">Save/Export</button>
+                      <span id="prev-toast" class="cp-status"></span>
+                    </div>
+                  </div>
+
+                  <!-- Compare View -->
+                  <div id="cp-compare">
+                    <h3 class="cp-section-title" style="margin-top:20px;">Your Answers vs. Expert Model</h3>
+                    <div class="cp-compare-wrapper">
+                      
+                      <!-- User Col -->
+                      <div class="cp-col">
+                        <div class="cp-col-header">Your Answers</div>
+                        <div class="cp-col-body" id="prev-user-body">
+                          <div class="cp-user-answer">
+                            <h4>1. Response to Manager</h4>
+                            <div id="prev-user-q1" class="cp-content"></div>
+                          </div>
+                          <div class="cp-user-answer">
+                            <h4>2. Short-term Solution</h4>
+                            <div id="prev-user-q2" class="cp-content"></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Expert Col -->
+                      <div class="cp-col cp-expert-col">
+                        <div class="cp-col-header">Expert Learning Points</div>
+                        <div class="cp-col-body" id="prev-expert-scroll">
+                          <div class="cp-content">
+                            <p><strong>Q1:</strong> "While I understand the tight deadline, launching without captions excludes learners. If we launch Friday, we knowingly deploy a broken product."</p>
+                            <p><strong>Q2:</strong> "Let's delay to Tuesday. I will run the videos through auto-captioning and edit them. The developer can add basic tab-index navigation."</p>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <script>
+                    (function(){
+                      const taIds = ["prev-q1","prev-q2"];
+                      const textareas = taIds.map(id => document.getElementById(id));
+                      
+                      function autogrow(el){ if(!el) return; el.style.height = 'auto'; el.style.height = (el.scrollHeight) + 'px'; }
+                      textareas.forEach(ta=>{ ta.addEventListener('input', ()=> autogrow(ta)); });
+
+                      document.getElementById('prev-btnCompare').addEventListener('click', () => {
+                        textareas.forEach(ta => ta.setAttribute('readonly','true'));
+                        document.getElementById('prev-user-q1').textContent = document.getElementById('prev-q1').value || "(No answer)";
+                        document.getElementById('prev-user-q2').textContent = document.getElementById('prev-q2').value || "(No answer)";
+                        
+                        document.getElementById('cp-questions').style.display = 'none';
+                        document.getElementById('cp-compare').style.display = 'block';
+                        document.getElementById('prev-btnCompare').classList.add('cp-hidden');
+                        document.getElementById('prev-btnEdit').classList.remove('cp-hidden');
+                        
+                        document.getElementById('cp-questions').insertAdjacentElement('afterend', document.querySelector('.cp-buttons'));
+                      });
+
+                      document.getElementById('prev-btnEdit').addEventListener('click', () => {
+                        textareas.forEach(ta => ta.removeAttribute('readonly'));
+                        document.getElementById('cp-compare').style.display = 'none';
+                        document.getElementById('cp-questions').style.display = 'block';
+                        document.getElementById('prev-btnEdit').classList.add('cp-hidden');
+                        document.getElementById('prev-btnCompare').classList.remove('cp-hidden');
+                        document.getElementById('cp-questions').appendChild(document.querySelector('.cp-buttons'));
+                      });
+                    })();
+                  </script>
+                </div>
+                <!-- END LIVE PREVIEW -->
+            </div>
+
+            <!-- Pro Tip Section -->
+            <div class="pro-tip-box">
+                <h4>💡 Pro Tip for Non-Coders</h4>
+                <p>Don't want to dig into the code yourself? Copy this prompt, paste it into an AI (like Gemini or ChatGPT), and let the AI build your scenario perfectly!</p>
+                <div class="ai-prompt-container">
+                    <button class="copy-website-btn" onclick="copyText('prompt-compare')">Copy Prompt</button>
+                    <pre><code id="prompt-compare" class="language-text">I am building an interactive learning activity. I want to adapt my teaching principles into a specific HTML code format. 
+
+Please take my content provided below and insert it into the bracketed placeholders of the HTML template provided below. 
+
+Crucial instructions:
+1. If my content has more or fewer than 2 questions, duplicate or delete the &lt;article&gt; question blocks and the &lt;div class="cp-user-answer"&gt; blocks to match my number of questions.
+2. If you add or remove questions, you MUST update the JavaScript arrays at the bottom (taIds and lsKeys) to match the new number of questions. 
+3. Do not change the overall HTML structure or CSS styles.
+
+My Content:
+[Paste your scenario, questions, and the expert's answers here]
+
+HTML Template:
+[Paste the copied Template Code from below here]</code></pre>
+                </div>
+            </div>
+
+            <!-- Template Code Section -->
+            <div class="code-block-header">
+                <h3>Template Code</h3>
+                <button class="copy-website-btn" onclick="copyText('code-compare')">Copy Code</button>
+            </div>
+            <pre><code id="code-compare" class="language-html">&lt;!-- All-in-one component. Just copy and paste into your LMS! --&gt;
+&lt;div class="cp-wrap"&gt;
+  &lt;style&gt;
+    .cp-wrap {
+      --green: #235c35; --green-700: #163a21; --green-50: #e8f3ec; --border: #d9e4dc;
+      --text: #1a1a1a; --muted: #4b4b4b; --bg: #ffffff; --shadow: 0 2px 8px rgba(0,0,0,0.08); --radius: 14px;
+      font-family: system-ui, -apple-system, sans-serif; color: var(--text); background: var(--bg); line-height: 1.5; max-width: 980px; margin: 0 auto;
+    }
+    .cp-header { margin-bottom: 15px; }
+    .cp-header h2 { font-size: 1.35rem; color: var(--green); margin: 0 0 4px 0; }
+    .cp-header p { color: var(--muted); margin: 0; font-size: 0.95rem; }
+    .cp-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px 18px; margin-bottom: 14px; }
+    .cp-section-title { font-size: 1.05rem; font-weight: 700; color: var(--green-700); margin: 0 0 10px; border-bottom: 2px solid var(--green-50); padding-bottom: 6px; }
+    .cp-scenario p { margin: 4px 0; font-size: 0.98rem; }
+    .cp-label { font-weight: 700; color: var(--green-700); margin-bottom: 8px; display: block; font-size: 0.95rem; }
+    .cp-textarea { width: 100%; min-height: 90px; font-family: inherit; font-size: 1rem; padding: 12px; border-radius: 12px; border: 1px solid var(--border); box-sizing: border-box; resize: none; transition: 0.15s; }
+    .cp-textarea:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(35,92,53,0.15); }
+    .cp-textarea[readonly] { background: #f9faf9; cursor: not-allowed; }
+    .cp-buttons { display: flex; gap: 10px; margin-top: 12px; align-items: center; }
+    .cp-btn { appearance: none; border: 1px solid var(--green); color: var(--green); background: #fff; border-radius: 99px; padding: 8px 16px; font-weight: 600; cursor: pointer; transition: 0.15s; font-size: 0.9rem;}
+    .cp-btn:hover { background: var(--green-50); transform: translateY(-1px); }
+    .cp-btn-outline { border-color: var(--border); color: var(--green-700); }
+    .cp-hidden { display: none !important; }
+    .cp-status { color: var(--muted); font-size: 0.85rem; }
+    
+    #cp-compare { display: none; }
+    .cp-compare-wrapper { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 14px; align-items: start; }
+    .cp-col { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+    .cp-col-header { padding: 12px 16px; border-bottom: 1px solid var(--border); background: #fafdfb; font-weight: 700; color: var(--green-700); font-size: 1rem;}
+    .cp-col-body { padding: 14px 16px; }
+    .cp-user-answer { border: 1px solid var(--border); border-radius: 12px; padding: 12px; margin-bottom: 10px; }
+    .cp-user-answer h4 { margin: 0 0 6px; font-size: 0.9rem; color: var(--muted); }
+    .cp-content { white-space: pre-wrap; font-size: 0.95rem; }
+    .cp-expert-col .cp-content p { margin: 4px 0 12px 0; }
+    @media (max-width: 768px) { .cp-compare-wrapper { grid-template-columns: 1fr; } .cp-expert-col { order: 2; } }
+  &lt;/style&gt;
+
+  &lt;div class="cp-header"&gt;
+    &lt;h2&gt;[INSERT MAIN TITLE HERE]&lt;/h2&gt;
+    &lt;p&gt;Read the scenario and answer the questions. Then click &lt;strong&gt;Compare to Experts&lt;/strong&gt;. Your answers autosave.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Scenario Section --&gt;
+  &lt;div class="cp-card"&gt;
+    &lt;h3 class="cp-section-title"&gt;Scenario: [INSERT SCENARIO SUBTITLE]&lt;/h3&gt;
+    &lt;div class="cp-scenario"&gt;
+      &lt;p&gt;[INSERT SCENARIO PARAGRAPH 1 HERE]&lt;/p&gt;
+      &lt;p&gt;[INSERT SCENARIO PARAGRAPH 2 HERE]&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Question Input Section --&gt;
+  &lt;div id="cp-questions" class="cp-card"&gt;
+    &lt;h3 class="cp-section-title"&gt;Your Turn&lt;/h3&gt;
+    
+    &lt;!-- QUESTION 1 --&gt;
+    &lt;article class="cp-card" style="box-shadow:none; padding:0; border:none;"&gt;
+      &lt;label for="q1" class="cp-label"&gt;1. [INSERT QUESTION 1 HERE]&lt;/label&gt;
+      &lt;textarea id="q1" class="cp-textarea" placeholder="[INSERT QUESTION 1 PLACEHOLDER HINT]"&gt;&lt;/textarea&gt;
+    &lt;/article&gt;
+
+    &lt;!-- QUESTION 2 --&gt;
+    &lt;article class="cp-card" style="box-shadow:none; padding:0; border:none;"&gt;
+      &lt;label for="q2" class="cp-label"&gt;2. [INSERT QUESTION 2 HERE]&lt;/label&gt;
+      &lt;textarea id="q2" class="cp-textarea" placeholder="[INSERT QUESTION 2 PLACEHOLDER HINT]"&gt;&lt;/textarea&gt;
+    &lt;/article&gt;
+
+    &lt;!-- Controls --&gt;
+    &lt;div id="cp-buttons" class="cp-buttons"&gt;
+      &lt;button id="btnCompare" class="cp-btn"&gt;Compare to Experts&lt;/button&gt;
+      &lt;button id="btnEdit" class="cp-btn cp-hidden"&gt;Return to Editing&lt;/button&gt;
+      &lt;button id="btnExport" class="cp-btn cp-btn-outline"&gt;Save/Export Clipboard&lt;/button&gt;
+      &lt;span id="cp-toast" class="cp-status"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Comparison Section --&gt;
+  &lt;div id="cp-compare"&gt;
+    &lt;h3 class="cp-section-title" style="margin-top:20px;"&gt;Your Answers vs. Expert Model&lt;/h3&gt;
+    &lt;div class="cp-compare-wrapper"&gt;
+      
+      &lt;!-- Left Column: User Answers --&gt;
+      &lt;div class="cp-col"&gt;
+        &lt;div class="cp-col-header"&gt;Your Answers&lt;/div&gt;
+        &lt;div class="cp-col-body"&gt;
+          &lt;div class="cp-user-answer"&gt;
+            &lt;h4&gt;1. [SHORTENED Q1 TITLE]&lt;/h4&gt;
+            &lt;div id="user-q1" class="cp-content"&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="cp-user-answer"&gt;
+            &lt;h4&gt;2. [SHORTENED Q2 TITLE]&lt;/h4&gt;
+            &lt;div id="user-q2" class="cp-content"&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Right Column: Expert Answers --&gt;
+      &lt;div class="cp-col cp-expert-col"&gt;
+        &lt;div class="cp-col-header"&gt;Expert Learning Points&lt;/div&gt;
+        &lt;div class="cp-col-body" id="expert-scroll"&gt;
+          &lt;div class="cp-content"&gt;
+            &lt;p&gt;&lt;strong&gt;Q1:&lt;/strong&gt; [INSERT EXPERT ANSWER 1 HERE]&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Q2:&lt;/strong&gt; [INSERT EXPERT ANSWER 2 HERE]&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- JavaScript Logic --&gt;
+  &lt;script&gt;
+    (function(){
+      // IMPORTANT: If you add questions, add "q3", "q4" to BOTH arrays below!
+      const taIds = ["q1", "q2"];
+      const lsKeys = {
+        q1: "activity_autosave_q1",
+        q2: "activity_autosave_q2"
+      };
+      
+      const textareas = taIds.map(id =&gt; document.getElementById(id));
+      const btnCompare = document.getElementById('btnCompare');
+      const btnEdit = document.getElementById('btnEdit');
+      const btnExport = document.getElementById('btnExport');
+      const toast = document.getElementById('cp-toast');
+      const questionsSec = document.getElementById('cp-questions');
+      const compareSec = document.getElementById('cp-compare');
+      const buttonsDiv = document.getElementById('cp-buttons');
+      const expertScroll = document.getElementById('expert-scroll');
+
+      function autogrow(el){ if(!el) return; el.style.height = 'auto'; el.style.height = (el.scrollHeight) + 'px'; }
+
+      // Restore autosave
+      textareas.forEach(ta =&gt; {
+        if(localStorage.getItem(lsKeys[ta.id])) ta.value = localStorage.getItem(lsKeys[ta.id]);
+        autogrow(ta);
+        ta.addEventListener('input', () =&gt; {
+          autogrow(ta);
+          localStorage.setItem(lsKeys[ta.id], ta.value);
+        });
+      });
+
+      // Compare Mode
+      btnCompare.addEventListener('click', () =&gt; {
+        textareas.forEach(ta =&gt; ta.setAttribute('readonly','true'));
+        taIds.forEach(id =&gt; {
+          const uAns = document.getElementById('user-' + id);
+          if(uAns) uAns.textContent = document.getElementById(id).value || "(No answer provided.)";
+        });
+        
+        questionsSec.style.display = 'none';
+        compareSec.style.display = 'block';
+        btnCompare.classList.add('cp-hidden');
+        btnEdit.classList.remove('cp-hidden');
+        
+        // Move buttons below compare section
+        compareSec.appendChild(buttonsDiv);
+        
+        // Match heights
+        const userBody = document.querySelector('.cp-col-body');
+        expertScroll.style.maxHeight = Math.max(userBody.scrollHeight, 150) + 'px';
+        expertScroll.style.overflowY = 'auto';
+      });
+
+      // Edit Mode
+      btnEdit.addEventListener('click', () =&gt; {
+        textareas.forEach(ta =&gt; ta.removeAttribute('readonly'));
+        compareSec.style.display = 'none';
+        questionsSec.style.display = 'block';
+        btnEdit.classList.add('cp-hidden');
+        btnCompare.classList.remove('cp-hidden');
+        questionsSec.appendChild(buttonsDiv);
+      });
+
+      // Export
+      btnExport.addEventListener('click', async () =&gt; {
+        let text = "My Practice Answers:\n\n";
+        taIds.forEach((id, index) =&gt; {
+          text += `Q${index+1}:\n${document.getElementById(id).value || "(No answer)"}\n\n`;
+        });
+        try {
+          await navigator.clipboard.writeText(text);
+          toast.textContent = "Copied to clipboard!";
+        } catch(e) {
+          toast.textContent = "Failed to copy.";
+        }
+        setTimeout(() =&gt; toast.textContent = "", 2500);
+      });
+    })();
+  &lt;/script&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

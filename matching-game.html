@@ -18,6 +18,7 @@
             <li><a href="index.html">Welcome / How to Use</a></li>
             <li><a href="matching-game.html" class="active">Drag & Drop Matching</a></li>
             <li><a href="pause-reflect.html">Pause & Reflect Stepper</a></li>
+            <li><a href="compare-answers.html">Compare with Pro</a></li>
         </ul>
     </nav>
 
@@ -26,18 +27,18 @@
         
         <header class="page-header float-in">
             <h1>Drag & Drop Matching Game</h1>
-            <p>Interactive diagnostic tool. Users drag text cards to corresponding zones. Copy the code below and fill in the bracketed text.</p>
+            <p>A hands-on drag-and-drop activity that challenges learners to actively connect concepts, reinforcing their understanding and improving retention.</p>
         </header>
 
         <section class="component-section float-in delay-1">
             
             <h3 class="preview-title">Live Interactive Preview — <em>Try it out!</em></h3>
             <div class="preview-box">
-                <!-- FULLY INTERACTIVE LIVE PREVIEW (Original Colors) -->
+                <!-- FULLY INTERACTIVE LIVE PREVIEW -->
                 <div class="matching-game-container">
                     <div class="game-header">
-                      <h3>Constraint Diagnosis: Site 2 Interactive Challenge</h3>
-                      <p class="game-instruction">Tap or drag an answer on the right, then tap or drop it into the correct step on the left. Click "Check Answers" when finished.</p>
+                      <h3>Humanitarian Response: Match the Sector</h3>
+                      <p class="game-instruction">Tap or drag an activity on the right, then tap or drop it into the correct humanitarian sector on the left. Click "Check Answers" when finished.</p>
                     </div>
                   
                     <div class="matching-workspace" style="position: relative;">
@@ -46,14 +47,14 @@
                         <div id="confetti-rain"></div>
                       </div>
                   
-                      <!-- Left Column -->
+                      <!-- Left Column: Sectors -->
                       <div class="column left-column">
-                        <div class="column-title">Diagnostic Steps</div>
+                        <div class="column-title">Sectors</div>
                         
                         <div class="drop-zone-wrapper" data-step="1">
                           <div class="step-label-box">
                             <span class="step-num">1</span>
-                            <span class="step-text">Observe the Symptom</span>
+                            <span class="step-text">Shelter & Settlement</span>
                           </div>
                           <div class="drop-zone" data-target="1" onclick="handleZoneClick(event)" ondragover="allowDrop(event)" ondragleave="removeHighlight(event)" ondrop="dropItem(event)" ondragenter="highlightDrop(event)">
                             <span class="placeholder-text">Place answer here</span>
@@ -63,7 +64,7 @@
                         <div class="drop-zone-wrapper" data-step="2">
                           <div class="step-label-box">
                             <span class="step-num">2</span>
-                            <span class="step-text">Ask the Core Question</span>
+                            <span class="step-text">WASH</span>
                           </div>
                           <div class="drop-zone" data-target="2" onclick="handleZoneClick(event)" ondragover="allowDrop(event)" ondragleave="removeHighlight(event)" ondrop="dropItem(event)" ondragenter="highlightDrop(event)">
                             <span class="placeholder-text">Place answer here</span>
@@ -73,7 +74,7 @@
                         <div class="drop-zone-wrapper" data-step="3">
                           <div class="step-label-box">
                             <span class="step-num">3</span>
-                            <span class="step-text">Test Systematically</span>
+                            <span class="step-text">Food Security</span>
                           </div>
                           <div class="drop-zone" data-target="3" onclick="handleZoneClick(event)" ondragover="allowDrop(event)" ondragleave="removeHighlight(event)" ondrop="dropItem(event)" ondragenter="highlightDrop(event)">
                             <span class="placeholder-text">Place answer here</span>
@@ -83,7 +84,7 @@
                         <div class="drop-zone-wrapper" data-step="4">
                           <div class="step-label-box">
                             <span class="step-num">4</span>
-                            <span class="step-text">Identify Binding Constraint</span>
+                            <span class="step-text">Health & Medical</span>
                           </div>
                           <div class="drop-zone" data-target="4" onclick="handleZoneClick(event)" ondragover="allowDrop(event)" ondragleave="removeHighlight(event)" ondrop="dropItem(event)" ondragenter="highlightDrop(event)">
                             <span class="placeholder-text">Place answer here</span>
@@ -93,7 +94,7 @@
                         <div class="drop-zone-wrapper" data-step="5">
                           <div class="step-label-box">
                             <span class="step-num">5</span>
-                            <span class="step-text">Design Interventions</span>
+                            <span class="step-text">Protection</span>
                           </div>
                           <div class="drop-zone" data-target="5" onclick="handleZoneClick(event)" ondragover="allowDrop(event)" ondragleave="removeHighlight(event)" ondrop="dropItem(event)" ondragenter="highlightDrop(event)">
                             <span class="placeholder-text">Place answer here</span>
@@ -101,25 +102,31 @@
                         </div>
                       </div>
                   
-                      <!-- Right Column -->
+                      <!-- Right Column: Activities (Shuffled) -->
                       <div class="column right-column">
-                        <div class="column-title">Site 2 Observations & Actions</div>
+                        <div class="column-title">Field Activities</div>
                         <div id="draggable-pool" onclick="handleZoneClick(event)" ondragover="allowDropPool(event)" ondrop="dropToPool(event)">
-                          <div class="draggable-card" draggable="true" onclick="handleCardClick(event)" ondragstart="dragStart(event)" id="card-3" data-answer="3">
-                            Test structure, access, and governance rules to see which bottleneck is actually forcing families away.
-                          </div>
-                          <div class="draggable-card" draggable="true" onclick="handleCardClick(event)" ondragstart="dragStart(event)" id="card-1" data-answer="1">
-                            Roughly 200 shelters—fully erected, structurally sound, with intact tarpaulins—remain completely unoccupied at night.
-                          </div>
-                          <div class="draggable-card" draggable="true" onclick="handleCardClick(event)" ondragstart="dragStart(event)" id="card-5" data-answer="5">
-                            Eliminate the 48-hour rule, require nighttime verification, and establish transparent appeals mechanisms.
-                          </div>
-                          <div class="draggable-card" draggable="true" onclick="handleCardClick(event)" ondragstart="dragStart(event)" id="card-4" data-answer="4">
-                            Control: Committee governance rules strip plot ownership from families who temporarily leave the site to work.
-                          </div>
+                          
                           <div class="draggable-card" draggable="true" onclick="handleCardClick(event)" ondragstart="dragStart(event)" id="card-2" data-answer="2">
-                            What prevents registered families from sleeping in their designated shelters?
+                            Building latrines, distributing soap, and ensuring access to safe drinking water.
                           </div>
+                          
+                          <div class="draggable-card" draggable="true" onclick="handleCardClick(event)" ondragstart="dragStart(event)" id="card-5" data-answer="5">
+                            Keeping vulnerable populations safe from violence, exploitation, and abuse.
+                          </div>
+                          
+                          <div class="draggable-card" draggable="true" onclick="handleCardClick(event)" ondragstart="dragStart(event)" id="card-1" data-answer="1">
+                            Providing secure, covered living spaces and essential household items to protect from the elements.
+                          </div>
+                          
+                          <div class="draggable-card" draggable="true" onclick="handleCardClick(event)" ondragstart="dragStart(event)" id="card-4" data-answer="4">
+                            Administering vaccines, providing trauma care, and running mobile clinics.
+                          </div>
+                          
+                          <div class="draggable-card" draggable="true" onclick="handleCardClick(event)" ondragstart="dragStart(event)" id="card-3" data-answer="3">
+                            Distributing emergency rations and treating severe acute malnutrition.
+                          </div>
+
                         </div>
                       </div>
                     </div>
