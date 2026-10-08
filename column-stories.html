@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Library - Column Stories</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2>ID Components</h2>
+            <p>Learning Activity Templates</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Welcome / How to Use</a></li>
+            <li><a href="matching-game.html">Drag & Drop Matching</a></li>
+            <li><a href="pause-reflect.html">Pause & Reflect Stepper</a></li>
+            <li><a href="compare-answers.html">Compare with Pro</a></li>
+            <li><a href="column-stories.html" class="active">Column Case Profiles</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="content">
+        
+        <header class="page-header float-in">
+            <h1>Case Profiles — Column Layout</h1>
+            <p>A responsive, color-coded grid perfect for comparing different user personas, scenarios, or case studies side-by-side.</p>
+        </header>
+
+        <section class="component-section float-in delay-1">
+            
+            <div class="customization-guide-box">
+                <h4>🛠️ How to use 3 vs. 4 Columns</h4>
+                <p>This layout uses Flexbox to automatically size the columns to fit on one row. The template below includes 3 columns by default.</p>
+                <p>If you need a 4th story, simply duplicate one of the <code>&lt;section class="story-card..."&gt;</code> blocks and change its color class to <strong><code>story-col4</code></strong> to apply the purple hue (#F5F0FF).</p>
+            </div>
+
+            <h3 class="preview-title">Live Preview</h3>
+            <div class="preview-box">
+                
+                <!-- ==========================================
+                     LIVE PREVIEW OF THE COMPONENT
+                =========================================== -->
+                <div class="story-wrap">
+                  <style>
+                    .story-wrap {
+                      --text: #1a1a1a; --border: rgba(0,0,0,0.12);
+                      --col1: #DAEEF3; --col2: #FDE9D9; --col3: #EAF1DD; --col4: #F5F0FF;
+                      --accent: #235c35;
+                      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+                      color: var(--text); background: #ffffff; line-height: 1.6; max-width: 1200px; margin: 0 auto;
+                    }
+                    .story-grid { display: flex; gap: 16px; }
+                    .story-card { flex: 1; min-width: 0; border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.06); padding: 18px; }
+                    .story-col1 { background: var(--col1); }
+                    .story-col2 { background: var(--col2); }
+                    .story-col3 { background: var(--col3); }
+                    .story-col4 { background: var(--col4); }
+                    .story-card h3 { font-size: 1.2rem; font-weight: 800; margin: 0 0 12px 0; color: var(--accent); }
+                    .story-content { white-space: pre-wrap; font-size: 0.95rem; }
+                    @media (max-width: 820px) { .story-grid { flex-direction: column; } }
+                  </style>
+
+                  <div class="story-grid">
+                    <!-- Column 1 -->
+                    <section class="story-card story-col1">
+                      <h3>Tent 1: The Water Merchant</h3>
+                      <div class="story-content">Ibrahim salvaged ten 200-liter drums from his old hardware store. "Control water, control everything," he explains. 
+                        
+By waking at 3 AM to fill his drums, he bypasses the daytime crowds. By 7 AM, he sells the water to working families at triple the effort cost.</div>
+                    </section>
+
+                    <!-- Column 2 -->
+                    <section class="story-card story-col2">
+                      <h3>Tent 2: The Daily Math</h3>
+                      <div class="story-content">Fatima's morning starts with impossible calculations. "If I queue for water, I lose four hours of work time. Four hours equals 200 shillings lost."
+                        
+She shows a small notebook detailing her survival trade-offs: Water vs. food. Safety vs. access. Health vs. hunger.</div>
+                    </section>
+
+                    <!-- Column 3 -->
+                    <section class="story-card story-col3">
+                      <h3>Tent 3: Beyond Coping</h3>
+                      <div class="story-content">Grace is 73. Her grandson, Samuel, has cerebral palsy, and his wheelchair broke during their evacuation. 
+
+Grace's arthritis makes carrying heavy water containers impossible. "They announce 'vulnerable priority' at distributions," Grace sighs. "But priority means nothing in a crowd."</div>
+                    </section>
+                  </div>
+                </div>
+                <!-- END LIVE PREVIEW -->
+                
+            </div>
+
+            <!-- Pro Tip Section -->
+            <div class="pro-tip-box">
+                <h4>💡 Pro Tip for Non-Coders</h4>
+                <p>Copy this prompt and paste it into an AI (like Gemini or ChatGPT) along with your content to instantly format your stories into this grid!</p>
+                <div class="ai-prompt-container">
+                    <button class="copy-website-btn" onclick="copyText('prompt-stories')">Copy Prompt</button>
+                    <pre><code id="prompt-stories" class="language-text">I am building an interactive learning layout. I want to format my case studies/stories into a specific HTML code format. 
+
+Please take my content provided below and insert it into the bracketed placeholders of the HTML template provided below. 
+
+Crucial instructions:
+1. If I provide 3 stories, use only story-col1, story-col2, and story-col3. 
+2. If I provide 4 stories, duplicate a card section and assign it the class "story-col4" for the fourth story.
+3. Do not change the overall HTML structure or CSS styles. Keep the white-space formatting intact.
+
+My Content:
+[Paste your 3 or 4 stories and their titles here]
+
+HTML Template:
+[Paste the copied Template Code from below here]</code></pre>
+                </div>
+            </div>
+
+            <!-- Template Code Section -->
+            <div class="code-block-header">
+                <h3>Template Code</h3>
+                <button class="copy-website-btn" onclick="copyText('code-stories')">Copy Code</button>
+            </div>
+            <pre><code id="code-stories" class="language-html">&lt;!-- All-in-one Case Profiles component. Just copy and paste into your LMS! --&gt;
+&lt;div class="story-wrap"&gt;
+  &lt;style&gt;
+    .story-wrap {
+      --text: #1a1a1a; --border: rgba(0,0,0,0.12);
+      --col1: #DAEEF3; --col2: #FDE9D9; --col3: #EAF1DD; --col4: #F5F0FF;
+      --accent: #235c35;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text); background: #ffffff; line-height: 1.6; max-width: 1200px; margin: 0 auto;
+    }
+    .story-grid { display: flex; gap: 16px; }
+    .story-card { flex: 1; min-width: 0; border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.06); padding: 18px; }
+    .story-col1 { background: var(--col1); }
+    .story-col2 { background: var(--col2); }
+    .story-col3 { background: var(--col3); }
+    .story-col4 { background: var(--col4); }
+    .story-card h3 { font-size: 1.2rem; font-weight: 800; margin: 0 0 12px 0; color: var(--accent); }
+    .story-content { white-space: pre-wrap; font-size: 0.95rem; }
+    @media (max-width: 820px) { .story-grid { flex-direction: column; } }
+  &lt;/style&gt;
+
+  &lt;div class="story-grid"&gt;
+    
+    &lt;!-- Column 1 --&gt;
+    &lt;section class="story-card story-col1"&gt;
+      &lt;h3&gt;[INSERT STORY 1 TITLE]&lt;/h3&gt;
+      &lt;div class="story-content"&gt;[INSERT STORY 1 TEXT HERE]&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- Column 2 --&gt;
+    &lt;section class="story-card story-col2"&gt;
+      &lt;h3&gt;[INSERT STORY 2 TITLE]&lt;/h3&gt;
+      &lt;div class="story-content"&gt;[INSERT STORY 2 TEXT HERE]&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- Column 3 --&gt;
+    &lt;section class="story-card story-col3"&gt;
+      &lt;h3&gt;[INSERT STORY 3 TITLE]&lt;/h3&gt;
+      &lt;div class="story-content"&gt;[INSERT STORY 3 TEXT HERE]&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- Optional Column 4: To use, copy a section above and change the class to "story-card story-col4" --&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

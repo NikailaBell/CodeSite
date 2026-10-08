@@ -19,6 +19,7 @@
             <li><a href="matching-game.html">Drag & Drop Matching</a></li>
             <li><a href="pause-reflect.html">Pause & Reflect Stepper</a></li>
             <li><a href="compare-answers.html" class="active">Compare with Pro</a></li>
+            <li><a href="column-stories.html">Column Case Profiles</a></li>
         </ul>
     </nav>
 
@@ -27,7 +28,7 @@
         
         <header class="page-header float-in">
             <h1>Compare with an Expert</h1>
-            <p>A scenario-based exercise where learners tackle a real-world problem and immediately compare their response side-by-side with an expert's to see how closely their thinking aligns.</p>
+            <p>A reflective practice tool that lets learners test their judgment and instantly see how their answers stack up against an expert model.</p>
         </header>
 
         <section class="component-section float-in delay-1">
@@ -175,6 +176,21 @@
                         document.getElementById('prev-btnEdit').classList.add('cp-hidden');
                         document.getElementById('prev-btnCompare').classList.remove('cp-hidden');
                         document.getElementById('cp-questions').appendChild(document.querySelector('.cp-buttons'));
+                      });
+
+                      document.getElementById('prev-btnExport').addEventListener('click', async () => {
+                        const toast = document.getElementById('prev-toast');
+                        let text = "My Practice Answers:\n\n";
+                        taIds.forEach((id, index) => {
+                          text += `Q${index+1}:\n${document.getElementById(id).value || "(No answer)"}\n\n`;
+                        });
+                        try {
+                          await navigator.clipboard.writeText(text);
+                          toast.textContent = "Copied to clipboard!";
+                        } catch(e) {
+                          toast.textContent = "Failed to copy.";
+                        }
+                        setTimeout(() => toast.textContent = "", 2500);
                       });
                     })();
                   </script>
